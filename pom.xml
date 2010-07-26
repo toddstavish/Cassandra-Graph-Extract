@@ -1,0 +1,108 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>nl.sodeso.blog</groupId>
+    <artifactId>Authors</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+
+    <name>Graph Extraction Sample</name>
+    <url>http://maven.apache.org</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+	<build>
+        <defaultGoal>compile</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>exec-maven-plugin</artifactId>
+				<version>1.1</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>exec</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<executable>java</executable>
+					<workingDirectory>target/classes/</workingDirectory>
+					<arguments>
+						<argument>-Xms1000m</argument>
+						<argument>-Xmx2000m</argument>
+						<argument>-Djava.library.path=/opt/InfiniteGraph/mac86_64/lib</argument>
+						<argument>-Xdebug</argument>
+						<argument>-Xrunjdwp:transport=dt_socket,address=9001,server=y,suspend=n</argument>
+			        	<argument>-classpath</argument>
+			        	<classpath></classpath>
+						<argument>sh.stavi.blog.FriendsGraphExtract</argument>
+						<!-- <commandlineArgs></commandlineArgs> -->
+			      	</arguments>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
+		<dependency>
+	        <groupId>org.apache.cassandra</groupId>
+	        <artifactId>cassandra</artifactId>
+	        <version>0.6.3</version>
+			<scope>system</scope>
+	    	<systemPath>/opt/apache-cassandra-0.6.3/lib/apache-cassandra-0.6.3.jar</systemPath>
+	 	</dependency>
+	 	<dependency>
+	        <groupId>log4j</groupId>
+	        <artifactId>log4j</artifactId>
+	        <version>1.2.14</version>
+	 	</dependency>
+	 	<dependency>
+	        <groupId>org.slf4j</groupId>
+	        <artifactId>slf4j-api</artifactId>
+	        <version>1.5.8</version>
+	 	</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.5.8</version>
+		</dependency>	
+		<dependency>
+			<groupId>org.apache.thrift</groupId>
+			<artifactId>libthrift</artifactId>
+			<version>r917130</version>
+		</dependency>
+		<dependency>
+			<groupId>com.objy</groupId>
+			<artifactId>graph</artifactId>
+			<version>0.90</version>
+			<scope>system</scope>
+	    	<systemPath>/opt/InfiniteGraph/mac86_64/lib/InfiniteGraph-0.90.jar</systemPath>
+		</dependency>
+        <dependency>
+			<groupId>com.objy</groupId>
+			<artifactId>db</artifactId>
+			<version>10.1</version>
+			<scope>system</scope>
+	    	<systemPath>/opt/InfiniteGraph/mac86_64/lib/oojava.jar</systemPath>
+		</dependency>
+    </dependencies>
+	
+</project>
