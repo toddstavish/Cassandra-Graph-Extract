@@ -5,7 +5,7 @@ This code base demonstrates processing graphs in InfiniteGraph (graph database) 
 
 More information on this project can be found here:
 
-http://blog.stavi.sh/polyglot-persistence-integrating-low-latency
+[http://blog.stavi.sh/polyglot-persistence-integrating-low-latency](http://blog.stavi.sh/polyglot-persistence-integrating-low-latency)
 
 Dependencies:
 -------------
@@ -18,7 +18,7 @@ Dependencies:
 Installation:
 -------------
 
-1. Download and install the [InfinteGraph Datbase](http://www.infinitegraph.com/)
+1. Download and install the [InfinteGraph Database](http://www.infinitegraph.com/)
 2. Download and extract [Cassandra](http://cassandra.apache.org/)
 3. Start InfiniteGraph lockserver
 4. Run a single node instance of Cassandra 
